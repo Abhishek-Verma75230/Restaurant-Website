@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'poppins',sans-serif;
+}
+
+
+
+
+
+/* ############### utility-classes ########### */
+.container{
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+}
+.btn{
+    display: inline-block;
+    padding: 0.8em 3.5em;
+    text-decoration: none;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    margin-top: 1em;
+    font-weight: 500;
+}
+.btn-primary{
+    color: #ffff;
+    background: #16a083;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ############ navbar-styling ############ */
+.navbar input[type='checkbox'],
+.navbar .hamburger-lines{
+    display: none;
+}
+.navbar{
+    box-shadow: 0px 5px 10px 0px #aaa;
+    position: fixed;
+    width: 100%;
+    background-color: #ffff;
+    color: #0000;
+    opacity: 0.85;
+    z-index: 9999;
+}
+.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    align-items: center;
+    flex-direction: row;
+}
+.menu-items{
+    order: 2;
+    display: flex;
+     /* ise likho ya na likho bidefault row hi hota h */
+    flex-direction: row;
+}
+
+.logo{
+    order: 1;
+    color: black;
+    font-size: 3rem;
+}
+.menu-items li{
+    list-style: none;
+    margin-left: 1.5rem;
+    font-size: 1.8rem;
+   
+}
+.navbar a{
+    color: #444;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+.navbar a:hover{
+    color: #117964;
+}
+/* ########### showcase-styiling ########## */
+.showcase-area{
+    height: 50vh;
+    background: url("./images/header-image2\(1\).jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* border: solid red 4px; */
+}
+.showcase-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height 100% karne se ab container area ka poora height lega */
+    height: 100%;
+    font-size: 1.6rem;
+    /* border: solid black 8px; */
+}
+.main-title{
+    text-transform: uppercase;
+}
+  
+/* ############## about us ############ */
+#about{
+    padding: 50px opx ;
+    background: #f5f5f7;
+}
+.about-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+#about h2{
+    font-size: 3.2rem;
+}
+#about p{
+    font-size: 1.6rem;
+    color: #555;
+}
+#about .small{
+    font-size: 1.6rem;
+    color: #666;
+    font-weight: 600;
+}
+.about-image{
+    flex: 1 1 400px;
+    /* width: 400px; */
+    padding: 30px;
+    transform: translateX(150%);
+    animation: about-image-animation 1s ease-in-out forwards;
+    
+}
+@keyframes about-image-animation{
+    100%{
+        transform:translate(0%);
+    }
+}
+.about-text{
+    flex: 1 1 400px;
+    /* width: 400px; */
+    padding: 30px; 
+    margin: auto;
+    transform: translateX(-150%);
+    animation: about-text-animation 1s ease-in-out forwards;
+}
+@keyframes about-text-animation{
+    100%{
+        transform:translate(0%);
+    }
+}
+.about-image img{
+    display: block;
+    height: 400px;
+    max-width: 100%;
+    margin: auto;
+    object-fit: cover;
+    object-position: right;
+}
+
+
+
+
+
+.food-container{
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+}
+.food-type img{
+    display: block;
+    max-height: 300px;
+}
+#food h2{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: #444;
+}
+#food h2 pa{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.food-container img{
+    display: block;
+    width: 100%;
+    margin: auto;
+    max-height: 250px;
+    object-fit: cover;
+    object-position: center;
+}
+.image-container{
+    position: relative;
+    margin: 0,1rem;
+    /* border: 2px solid red; */
+}
+.image-content{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    z-index: 2;
+    text-align: center;
+    transition: all 0.3s ease-in-out 0.1s;
+
+}
+.image-content h3{
+    color: #fff;
+    font-size:3rem ;
+}
+.image-content a{
+    font-size: 1.2rem;
+}
+.image-container::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.871);
+    z-index: 1;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: 100% 100%;
+    transition: all 0.3s ease-in-out;
+}
+.image-container:hover::after{
+    opacity: 1;
+    transform: scaleY(1);
+}
+.image-container:hover .image-content{
+    opacity: 1;
+    top: 40%;
+}
+.food-type{
+    margin: 0 1.5rem;
+}
+/* ############ food-menu ############# */
+.food-menu-heading{
+    font-size: 4rem;
+    text-align: center;
+    color: #444;
+    font-weight: 400;
+}
+.food-menu-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 0px 30px 0px;
+}
+.food-menu-item{
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex: 1 1 600px;
+    justify-content: space-evenly;
+    margin-bottom: 3rem;
+}
+.food-menu-container img{
+    display: block;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    /* padhna baki h abhi  */
+    object-fit: cover;
+    object-position: center;
+}
+.food-description{
+    margin: auto 1.5rem;
+}
+.food-title{
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #444;
+}
+.food-price{
+    color: #117964;
+    font-weight: 700;
+}
+/* ############ testimonials-styilying ############ */
+#testimonials{
+    padding: 5rem 0;
+    background: rgba(243,243,243);
+}
+.testimonial-title{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #555;
+    text-transform: uppercase;
+}
+.testimonial-container{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    padding: 1rem;
+}
+.testimonial-container .checked{
+    color: #ff9529;
+}
+.testimonial-text{
+    margin: 1rem 0rem;
+    color: #444;
+}
+.testimonial-box{
+    text-align: center;
+    padding: 1rem;
+}
+.customer-photo img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin: auto;
+
+}
+
+
